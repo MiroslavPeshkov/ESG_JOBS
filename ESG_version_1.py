@@ -102,9 +102,9 @@ TRIGGER = ['/about-us/careers?gh_jid=',
 def get_data():
     # get data from AirTable
     urls = []
-    base_key = 'apporlxSPon7AJAxv' # Insert the Base ID of your working base
-    table_name = 'Companies' #Insert the name of the table in your working base
-    api_key = 'keyHdp0DxoHCbnHHX' #Insert your API Key
+    base_key = 'xxxxxxxxxx' # Insert the Base ID of your working base
+    table_name = 'xxxxxxxxxxxx' #Insert the name of the table in your working base
+    api_key = 'xxxxxxxxxxxxxxxxxx' #Insert your API Key
     airtable = Airtable(base_key,table_name,  api_key)
     df = airtable.get_all(fields='Website')
     for i in df:
@@ -145,8 +145,8 @@ def compare_data(all_urls): #has_jobs_urls
             datawriter.writerow([link])
 
 def post_to_airtable():
-    AIRTABLE_API_KEY = 'keyHdp0DxoHCbnHHX'
-    post_url = 'https://api.airtable.com/v0/apporlxSPon7AJAxv/Has%20or%20not%20jobs' #https://api.airtable.com/v0/apporlxSPon7AJAxv/Has%20or%20not%20jobs
+    AIRTABLE_API_KEY = 'x'
+    post_url = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxx' #https://api.airtable.com/v0/apporlxSPon7AJAxv/Has%20or%20not%20jobs
     # post_url = 'https://api.airtable.com/v0/apporlxSPon7AJAxv/Companies/recxcDBt17TWIO95N'
     post_headers = {
         'Authorization': f'Bearer {AIRTABLE_API_KEY}',
@@ -191,9 +191,9 @@ def post_to_airtable():
 def get_links():
     # Note! Links must add from AirTable
     # urls_has_jobs = []
-    base_key = 'apporlxSPon7AJAxv'  # 'tblrc6HK1rZto83zN' # Insert the Base ID of your working base
-    table_name = 'Has or not jobs'  # Insert the name of the table in your working base
-    api_key = 'keyHdp0DxoHCbnHHX'  # Insert your API Key
+    base_key = 'xxxxxxxxxxxxxxxx'  # 'tblrc6HK1rZto83zN' # Insert the Base ID of your working base
+    table_name = 'xxxxxxxxxxxxxxxxx'  # Insert the name of the table in your working base
+    api_key = 'xxxxxxxxxxxxxxxxxxxxx'  # Insert your API Key
     airtable = Airtable(base_key, table_name, api_key)
     df = airtable.get_all(fields='Vacancy URL page')
     # jobs_munually_remove_drop_for_minimize_dataset = pd.read_csv('Jobs_finding_manually.csv')
@@ -406,9 +406,9 @@ def parse_vacancy_SELENIUM(links_for_all):
 
 def get_vacancy_url_for_compare():
     urls = []
-    base_key = 'apporlxSPon7AJAxv' # Insert the Base ID of your working base
-    table_name = 'Trial_API' #Insert the name of the table in your working base
-    api_key = 'keyHdp0DxoHCbnHHX' #Insert your API Key
+    base_key = 'xxxxxxxxxxxxx' # Insert the Base ID of your working base
+    table_name = 'xxxxxxxxxxxxxxxxx' #Insert the name of the table in your working base
+    api_key = 'xxxxxxxxxxxxxxxxxxxxxx' #Insert your API Key
     airtable = Airtable(base_key,table_name,  api_key)
     df = airtable.get_all(fields='company_url')
     for i in df:
@@ -420,8 +420,8 @@ def get_vacancy_url_for_compare():
 
 
 def post_to_airtable_final():
-    AIRTABLE_API_KEY = 'keyHdp0DxoHCbnHHX'
-    post_url = 'https://api.airtable.com/v0/apporlxSPon7AJAxv/Trial_API'
+    AIRTABLE_API_KEY = 'xxxxxxxxxxxxxxxxxxxxxxx'
+    post_url = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
     post_headers = {
         'Authorization': f'Bearer {AIRTABLE_API_KEY}',
         'Content-Type': 'application/json'
@@ -544,7 +544,6 @@ def main():
         print('I begin work')
         # the first function
         df = get_data()
-        df = df[50:65]
         has_jobs = check_valid_links(df)
         compare_data(has_jobs)
         post_to_airtable()
@@ -552,7 +551,6 @@ def main():
         time.sleep(10)
         # the second function
         while True:
-                # if datetime.datetime.now().time().strftime("%H:%M:%S") == '17:00:00':
             all_links_of_ESG = get_links()
             if len(all_links_of_ESG) == 0:
                 print('There are no jobs url finding manually')
